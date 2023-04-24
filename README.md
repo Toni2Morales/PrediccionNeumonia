@@ -92,6 +92,25 @@ x = x/255
 
 ## Creación de la red neuronal convolucional
 #### He elegido crear dos capas de la red convolucional con 2 pooling layers. La activación que he elegido ha sido relu para las capas de entrada y las capas ocultas y sigmoide para la capa de salida ya que va a ser un modelo de clasificación binaria. De optimizador he elegido Adam, de función de pérdida binary_crossentropy ya que es una clasificación binaria y de metrica como función de pérdida accuracy. En la primera capa de la red convolucional aplicamos 64 filtros en un rango de 3x3 píxeles, luego le cambiamos la resolucion. En la tercera capa aplicamos 128 filtros en un rango de 3x3 píxeles y la red convolucional termina con una minimización en su resolución para luego aplanar los datos y meterlos en una red neuronal con 128 neuronas en la capa de entrada y una en la salida ya que queremos que nos devuelva solo un valor binario(1 o 0).
+
+#### Red Convolucional
+Tipo de capa|Tamaño de neuronas|Rango del Filtro|FUnción de activación
+-----|-----|----|---
+Convolucional|65536|3x3|Indefinido
+Pooling||2x2|
+Convolucional|Indefinido|3x3|Relu
+Pooling||2x2|
+
+#### Red Neuronal
+Capa| Números de neuronas| Función de activación
+------|-----|------
+Flatten
+1|128|Relu
+2|1|Función sigmoide
+#### Compilación
+Optimizador| Función de coste| Métrica
+---|---|---
+Adam|Binary Crossentropy| Accuracy
 ```py
 layers = [
     keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(256,256, 1)),
