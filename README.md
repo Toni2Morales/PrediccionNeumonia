@@ -111,24 +111,7 @@ Flatten
 Optimizador| Función de coste| Métrica
 ---|---|---
 Adam|Binary Crossentropy| Accuracy
-```py
-layers = [
-    keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(256,256, 1)),
-    keras.layers.MaxPooling2D(pool_size=(2,2)),
-    
-    keras.layers.Conv2D(128, (3,3), activation='relu'),
-    keras.layers.MaxPooling2D(pool_size=(2,2)),
-    
-    keras.layers.Flatten(),
-    keras.layers.Dense(128, activation='relu'),
-    keras.layers.Dense(1, activation='sigmoid')
-]
 
-model = keras.Sequential(layers)
-model.compile(optimizer = 'adam',
-             loss = 'binary_crossentropy',
-             metrics = ['accuracy'])
-```
 ![Imagen](src/images/Imagen1.PNG)
 ## Entrenamiento de la red
 
