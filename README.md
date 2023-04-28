@@ -112,23 +112,33 @@ Optimizador| Función de coste| Métrica
 ---|---|---
 Adam|Binary Crossentropy| Accuracy
 
-![Imagen](src/images/Imagen1.PNG)
+ Layer (type)          |      Output Shape        |      Param #   
+---|----|-----
+ conv2d_4 (Conv2D)      |     (None, 254, 254, 64)  |    640       
+                                                                 
+ max_pooling2d_4 (MaxPooling  | (None, 127, 127, 64)  |   0         
+ 2D)                                                             
+                                                                 
+ conv2d_5 (Conv2D)       |    (None, 125, 125, 128)  |   73856     
+                                                                 
+ max_pooling2d_5 (MaxPooling  | (None, 62, 62, 128)  |    0         
+ 2D)                                                             
+                                                                 
+ flatten_2 (Flatten)      |    (None, 492032)     |       0         
+                                                                 
+ dense_4 (Dense)       |     (None, 128)      |         62980224  
+                                                                 
+ dense_5 (Dense)       |     (None, 1)       |          129  
 ## Entrenamiento de la red
 
 #### Barajamos los datos y entrenamos el modelo
 
-```py
-xtrain = shuffle(x, random_state = 42)
-ytrain = shuffle(y, random_state = 42)
-
-history = model.fit(xtrain,
-    ytrain,
-    batch_size = 128,
-    epochs = 20,
-    validation_split = 0.2
-)
-```
-
+#### Elegimos los siguientes parámetros al entrenar el modelo:
+Parámetro | Valor
+---|----
+Batch_size | 128
+Épocas | 20
+Validation_split | 0,2
 ## Evaluación del modelo
 
 #### Realizamos todas las operaciones realizadas a los datos pero esta vez a los datos de test y evaluamos el modelo.
