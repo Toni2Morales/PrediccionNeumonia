@@ -1,7 +1,7 @@
 # **Predicción de Neumonía**
 
 -----
-### Este proyecto va a consistir en el análisis, exploración de datos y creación de un modelo de red neuronal convolucional para la predicción de una neumonía en un paciente basándonos en una imagen de rayos x. Para ello se han usado diferentes herramientas y librerías enfocadas a las redes neuronales convolucionales.
+#### Este proyecto va a consistir en el análisis, exploración de datos y creación de un modelo de red neuronal convolucional para la predicción de una neumonía en un paciente basándonos en una imagen de rayos x. Para ello se han usado diferentes herramientas y librerías enfocadas a las redes neuronales convolucionales.
 
 
 
