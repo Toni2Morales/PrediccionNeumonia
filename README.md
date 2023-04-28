@@ -114,21 +114,13 @@ Adam|Binary Crossentropy| Accuracy
 
  Layer (type)          |      Output Shape        |      Param #   
 ---|----|-----
- conv2d_4 (Conv2D)      |     (None, 254, 254, 64)  |    640       
-                                                                 
- max_pooling2d_4 (MaxPooling  | (None, 127, 127, 64)  |   0         
- 2D)                                                             
-                                                                 
- conv2d_5 (Conv2D)       |    (None, 125, 125, 128)  |   73856     
-                                                                 
- max_pooling2d_5 (MaxPooling  | (None, 62, 62, 128)  |    0         
- 2D)                                                             
-                                                                 
- flatten_2 (Flatten)      |    (None, 492032)     |       0         
-                                                                 
- dense_4 (Dense)       |     (None, 128)      |         62980224  
-                                                                 
- dense_5 (Dense)       |     (None, 1)       |          129  
+conv2d_4 (Conv2D)      |     (None, 254, 254, 64)  |    640       
+max_pooling2d_4 (MaxPooling2D)  | (None, 127, 127, 64)  |   0                                                                      
+conv2d_5 (Conv2D)       |    (None, 125, 125, 128)  |   73856     
+max_pooling2d_5 (MaxPooling2D)  | (None, 62, 62, 128)  |    0                                                                      
+flatten_2 (Flatten)      |    (None, 492032)     |       0         
+dense_4 (Dense)       |     (None, 128)      |         62980224  
+dense_5 (Dense)       |     (None, 1)       |          129  
 ## Entrenamiento de la red
 
 #### Barajamos los datos y entrenamos el modelo
@@ -142,24 +134,15 @@ Validation_split | 0,2
 ## Evaluación del modelo
 
 #### Realizamos todas las operaciones realizadas a los datos pero esta vez a los datos de test y evaluamos el modelo.
-
-```py
-model.evaluate(x_test, y_test)
-output: [2.854746103286743, 0.7371794581413269]
-```
+Accuracy|0.7371794581413269
+----|-----
 #### Recordemos que la métrica era accuracy así que su valor es 0,73. es decir, de todas las muestras a predecir, hemos predicho el 73% correctamente.
 
 #### Vamos a ver otras métricas.
-
-```py
-print ("Accuracy:",metrics.accuracy_score(y_test, predict.round()))
-print("Recall:" , metrics.recall_score(y_test, predict.round()))
-print("Recall:", metrics.precision_score(y_test, predict.round()))
-
-output: 
-Accuracy: 0.7371794871794872
-Recall: 0.9948717948717949
-Precission: 0.7054545454545454
-```
+Métrica|Valor
+----|----
+Accuracy| 0.7371794871794872
+Recall| 0.9948717948717949
+Precission| 0.7054545454545454
 
 #### La métrica Recall nos indica que, de todos los pacientes con neumonia, hemos clasificado bien al 99%. La métrica de Precission nos infica que, de los que hemos predicho como pacientes con neumonía, hemos acertado el 70%. Vemos que nuestro modelo predice muy bien a los pacientes con neumonia pero también hay una cantidad considerable de falsos positivos.
