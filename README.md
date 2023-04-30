@@ -41,21 +41,8 @@
 
 #### Leemos todas las imágenes de con las que vamos a entrenar a nuestro modelo y que corresponden a imágenes de pacientes sanos. También cambiamos el tamaño de todas las imágenes para que tengan el mismo.
 
-```py
-lista_normal = []
-lista_neumonia = []
-for x in os.listdir("../data/chest_xray/train/NORMAL/"):
-    img = imread(os.path.join("../data/chest_xray/train/NORMAL/", x))
-    lista_normal.append(cv2.resize(img, (256, 256)))
-```
 #### Comprobamos que la forma de todas las imágenes es la misma y en blanco y negro ya que si hya algunas a color y otras en blanco y negro nos dará un error al no tener la misma forma todas las imágenes.
-```py
-set_normal= set()
-for elemento in lista_normal:
-    set_normal.add(elemento.shape)
-set_normal
-output: {(256, 256)}
-```
+
 #### Hacemos lo mismo de antes con las imágenes de persona con neumonía.
 ```py
 for x in os.listdir("../data/chest_xray/train/PNEUMONIA/"):
